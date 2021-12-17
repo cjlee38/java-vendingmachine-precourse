@@ -20,10 +20,6 @@ public class ProductRepository {
 		return productSet.toString();
 	}
 
-	public Price purchase(Name name) {
-		return productSet.purchase(name);
-	}
-
 	public ProductSet get() {
 		return productSet;
 	}

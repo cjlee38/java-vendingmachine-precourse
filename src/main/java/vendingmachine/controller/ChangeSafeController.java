@@ -1,15 +1,15 @@
 package vendingmachine.controller;
 
 import vendingmachine.domain.Money;
-import vendingmachine.service.ChangeSafeService;
+import vendingmachine.service.ChangeSafeServiceImpl;
 import vendingmachine.service.MoneyService;
 
 public class ChangeSafeController {
 
 	private final MoneyService moneyService;
-	private final ChangeSafeService changeSafeService;
+	private final ChangeSafeServiceImpl changeSafeService;
 
-	public ChangeSafeController(MoneyService moneyService, ChangeSafeService changeSafeService) {
+	public ChangeSafeController(MoneyService moneyService, ChangeSafeServiceImpl changeSafeService) {
 		this.moneyService = moneyService;
 		this.changeSafeService = changeSafeService;
 	}

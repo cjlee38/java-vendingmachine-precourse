@@ -12,7 +12,7 @@ import vendingmachine.domain.Money;
 
 class ChangeSafeServiceTest implements Rollback {
 
-	ChangeSafeService service = ServiceConfig.getChangeSafeService();
+	ChangeSafeServiceImpl service = ServiceConfig.getChangeSafeService();
 
 	@Test
 	@DisplayName("금액으로 잔돈 금고를 생성한다.")
@@ -31,7 +31,7 @@ class ChangeSafeServiceTest implements Rollback {
 		// given
 		Money money = new Money(300);
 		// when
-		ChangeSafe changeSafe = service.giveChange(money);
+		ChangeSafe changeSafe = service.giveChangeBack(money);
 		// then
 		assertEquals("100원 - 3개", changeSafe.toString());
 	}
@@ -42,7 +42,7 @@ class ChangeSafeServiceTest implements Rollback {
 		// given
 		Money money = new Money(500);
 		// when
-		ChangeSafe changeSafe = service.giveChange(money);
+		ChangeSafe changeSafe = service.giveChangeBack(money);
 		// then
 		assertEquals("100원 - 4개\n"
 			+ "50원 - 1개", changeSafe.toString());

@@ -20,7 +20,8 @@ public class PurchaseService {
 	}
 
 	public Price purchase(String input) {
-		return productRepository.purchase(new Name(input));
+		ProductSet productSet = productRepository.get();
+		return productSet.purchase(new Name(input));
 	}
 
 }

@@ -1,6 +1,6 @@
 package vendingmachine.config;
 
-import vendingmachine.service.ChangeSafeService;
+import vendingmachine.service.ChangeSafeServiceImpl;
 import vendingmachine.service.DepositService;
 import vendingmachine.service.MoneyService;
 import vendingmachine.service.ProductService;
@@ -14,8 +14,8 @@ public class ServiceConfig {
 		return new MoneyService();
 	}
 
-	public static ChangeSafeService getChangeSafeService() {
-		return new ChangeSafeService(DomainConfig.getCoinGenerator(), RepositoryConfig.getChangeSafeRepository());
+	public static ChangeSafeServiceImpl getChangeSafeService() {
+		return new ChangeSafeServiceImpl(DomainConfig.getCoinGenerator(), RepositoryConfig.getChangeSafeRepository());
 	}
 
 	public static SplitService getSplitService() {

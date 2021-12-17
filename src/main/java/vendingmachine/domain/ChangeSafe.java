@@ -1,7 +1,5 @@
 package vendingmachine.domain;
 
-import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -19,7 +17,7 @@ public class ChangeSafe {
 		this.coinMap = coinMap;
 	}
 
-	private Map<Coin, Quantity> merge(Map<Coin, Quantity> other) {
+	public Map<Coin, Quantity> merge(Map<Coin, Quantity> other) {
 		other.forEach((k, v) -> this.coinMap.merge(k, v, Quantity::plus));
 		return this.coinMap;
 	}

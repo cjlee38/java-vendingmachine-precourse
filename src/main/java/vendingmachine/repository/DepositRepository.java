@@ -23,8 +23,4 @@ public class DepositRepository {
 	public Money get() {
 		return depositMoney;
 	}
-
-	public void decrease(Price price) {
-		depositMoney = depositMoney.minus(price);
-	}
 }

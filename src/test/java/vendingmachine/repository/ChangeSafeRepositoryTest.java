@@ -2,7 +2,6 @@ package vendingmachine.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.DisplayName;
@@ -27,7 +26,7 @@ class ChangeSafeRepositoryTest implements Rollback {
 		coinMap.put(Coin.COIN_50, new Quantity(2));
 		ChangeSafe changeSafe = new ChangeSafe(coinMap);
 	    // when
-		ChangeSafe save = repository.save(changeSafe);
+		ChangeSafe save = repository.addCoins(changeSafe);
 		// then
 		System.out.println(save.toString());
 		assertEquals("500원 - 0개\n"

@@ -1,6 +1,10 @@
 package vendingmachine.repository;
 
+import java.util.Map;
+
 import vendingmachine.domain.ChangeSafe;
+import vendingmachine.domain.Coin;
+import vendingmachine.domain.Quantity;
 
 public class ChangeSafeRepository {
 
@@ -13,8 +17,8 @@ public class ChangeSafeRepository {
 		changeSafe = otherChangeSafe;
 	}
 
-	public ChangeSafe save(ChangeSafe newChangeSafe) {
-		changeSafe = newChangeSafe;
+	public ChangeSafe addCoins(Map<Coin, Quantity> coinMap) {
+		changeSafe.merge(coinMap);
 		return get();
 	}
 
