@@ -1,26 +1,20 @@
 package vendingmachine.repository;
 
-import vendingmachine.domain.Name;
-import vendingmachine.domain.Price;
+import java.util.Set;
+
+import vendingmachine.domain.Product;
 import vendingmachine.domain.ProductSet;
 
 public class ProductRepository {
 
 	private static ProductSet productSet = new ProductSet();
 
-	public ProductRepository() {
-	}
-
-	public ProductRepository(ProductSet otherProductSet) {
-		productSet = otherProductSet;
-	}
-
-	public String save(ProductSet newProductSet) {
-		productSet = newProductSet;
+	public String save(Set<Product> products) {
+		productSet = new ProductSet(products);
 		return productSet.toString();
 	}
 
 	public ProductSet get() {
-		return productSet;
+		return productSet.copy();
 	}
 }

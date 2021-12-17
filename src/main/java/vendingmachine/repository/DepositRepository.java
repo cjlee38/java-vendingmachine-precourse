@@ -5,22 +5,14 @@ import vendingmachine.domain.Price;
 
 public class DepositRepository {
 
-	private static Money depositMoney;
-
-	public DepositRepository() {
-		depositMoney = Money.ZERO;
-	}
-
-	public DepositRepository(Money money) {
-		depositMoney = money;
-	}
+	private static Money depositMoney = Money.ZERO;
 
 	public Money save(Money money) {
-		depositMoney = money;
+		depositMoney = new Money(money);
 		return get();
 	}
 
 	public Money get() {
-		return depositMoney;
+		return depositMoney.copy();
 	}
 }

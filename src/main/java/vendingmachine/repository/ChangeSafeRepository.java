@@ -10,19 +10,12 @@ public class ChangeSafeRepository {
 
 	private static ChangeSafe changeSafe = new ChangeSafe();
 
-	public ChangeSafeRepository() {
-	}
-
-	public ChangeSafeRepository(ChangeSafe otherChangeSafe) {
-		changeSafe = otherChangeSafe;
-	}
-
-	public ChangeSafe addCoins(Map<Coin, Quantity> coinMap) {
-		changeSafe.merge(coinMap);
+	public ChangeSafe save(Map<Coin, Quantity> coinMap) {
+		changeSafe = new ChangeSafe(coinMap);
 		return get();
 	}
 
 	public ChangeSafe get() {
-		return changeSafe;
+		return changeSafe.copy();
 	}
 }

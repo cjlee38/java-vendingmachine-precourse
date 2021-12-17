@@ -14,12 +14,17 @@ public class ProductSet {
 	}
 
 	public ProductSet(Set<Product> products) {
+		this();
 		this.products = products;
 	}
 
 	@Override
 	public String toString() {
 		return products.toString();
+	}
+
+	public void enroll(Set<Product> products) {
+		this.products.addAll(products);
 	}
 
 	public Price purchase(final Name name) {
@@ -44,4 +49,11 @@ public class ProductSet {
 	private boolean isAnyPurchasable(final Money money) {
 		return products.stream().anyMatch(product -> product.isPurchasable(money));
 	}
+
+	public ProductSet copy() {
+		ProductSet productSet = new ProductSet();
+		productSet.enroll(products);
+		return productSet;
+	}
+
 }

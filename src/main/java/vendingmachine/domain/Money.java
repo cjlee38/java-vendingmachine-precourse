@@ -19,6 +19,10 @@ public class Money {
 			new IntegerDividableException(Coin.MIN));
 	}
 
+	public Money(Money other) {
+		this(other.amount);
+	}
+
 	public Money plus(Money other) {
 		return new Money(this.amount + other.amount);
 	}
@@ -38,6 +42,10 @@ public class Money {
 
 	public boolean isGreaterThan(Money other) {
 		return this.amount > other.amount;
+	}
+
+	public Money copy() {
+		return new Money(amount);
 	}
 
 	@Override
@@ -61,5 +69,4 @@ public class Money {
 	public String toString() {
 		return amount + CURRENCY;
 	}
-
 }
